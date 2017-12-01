@@ -9,7 +9,7 @@ public class Queue<E>
 
 	public Queue()
 	{
-		queue = new Object[size+50];
+			queue = new Object[50];
 	}
 
 	public int size()
@@ -35,8 +35,17 @@ public class Queue<E>
 
 	public void enqueue(E item)
 	{
-		queue[size+1] = item;
-		size++;
+		if(size() < 50) {
+			queue[size() + 1] = item;
+			size++;
+		}
+
+		else{
+			Object[] doubleQueue = new Object[size()*2];
+			doubleQueue[size+1] = item;
+			size++;
+		}
+
 
 	}
 
